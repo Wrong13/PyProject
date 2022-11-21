@@ -27,7 +27,7 @@ metaData = sqlalchemy.MetaData()
 table1 = sqlalchemy.Table(
     "table1",
     metaData,
-    sqlalchemy.Column("ID_UCH_VOST_POL",sqlalchemy.Integer, primary_key=True),
+    sqlalchemy.Column("id_uch_vost_pol",sqlalchemy.Integer, primary_key=True),
     sqlalchemy.Column("NAME_BEGIN_VOST_UCH",sqlalchemy.String(100)),
     sqlalchemy.Column("ESR_BEGIN_VOST_UCH",sqlalchemy.Integer),
     sqlalchemy.Column("DOR_BEGIN_VOST_UCH",sqlalchemy.Integer),
@@ -58,6 +58,7 @@ table2 = sqlalchemy.Table(
 metaData.create_all(engine)
 
 print(metaData)
+
 
 entity1.to_sql(name="table1",con=engine, if_exists="replace",index=False)
 entity2.to_sql(name="table2",con=engine,if_exists="replace",index=False)
